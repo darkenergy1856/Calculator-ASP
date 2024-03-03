@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<Calculator.Models.Entities.Calculation>;
+
+<h1>Record</h1>
+
+<div class="mt-2">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Operand 1</th>
+				<th>Operator</th>
+				<th>Operand 2</th>
+				<th>Result</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach(var item in Model)
+			{
+				<tr>
+					<td>@item.Id</td>
+					<td>@item.operand1</td>
+					<td>@item.opeator</td>
+					<td>@item.operand2</td>
+					<td>@item.result</td>
+					<form action="post">
+					<td><a class="btn btn-danger" asp-controller="Record" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+					</form>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
